@@ -1,13 +1,18 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("./hardhat.tasks");
+require('dotenv').config();
 
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.9",
   networks:{
-    infura:{
+    mainnet:{
       url:`https://mainnet.infura.io/v3/8cf1a800b0b14c89bcacad7171eeac97`
+    },
+    goerli:{
+      url: process.env.RINKEBY_ALCHEMY,
+      accounts: [process.env.PRIVKEY1,process.env.PRIVKEY2]
     }
   }
 };
